@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+pragma solidity ^0.8.13;
+
+contract ReadFromDynamicArray {
+    uint256[] readMe;
+
+    function setValue(uint256[] calldata x) external {
+        readMe = x;
+    }
+
+    function main(uint256 index) external view returns (uint256) {
+        assembly {
+            mstore(0x00, 0)
+            let q := keccak256(0x00, 0x20)
+            let g := add(q,index)
+            mstore(0x00, g)
+            let s := mload(0x00)
+            // let k := add(s,i)
+            let v := sload(s)
+            mstore(0x00, v)
+            return (0x00, 0x20)
+            
+            // your code here
+            // read the value at the `index` in the dynamic array `readMe`
+            // and return it
+            // Assume `index` is <= to the length of readMe
+            // Hint: https://www.rareskills.io/post/solidity-dynamic
+        }
+    }
+}
