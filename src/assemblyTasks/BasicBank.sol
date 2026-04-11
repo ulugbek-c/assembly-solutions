@@ -14,15 +14,15 @@ contract BasicBank {
         bytes32 depositSelector = Deposit.selector;
         assembly {
             let m := mload(0x40)
-            let s := call(gas(),address(),callvalue(), m,0,m,0)
+            let s := call(gas(), address(), callvalue(), m, 0, m, 0)
             let sl := balances.slot
-            mstore(0x00,caller())
+            mstore(0x00, caller())
             mstore(0x20, sl)
             mstore(m, callvalue())
-            let kk := keccak256(0x00,0x40)
+            let kk := keccak256(0x00, 0x40)
             let lod := sload(kk)
-            sstore(kk, add(callvalue(),lod))
-            log2(m,0x20,depositSelector,caller())
+            sstore(kk, add(callvalue(), lod))
+            log2(m, 0x20, depositSelector, caller())
             // emit Deposit(msg.sender, msg.value)
             // increment the balance of the msg.sender by msg.value
         }
@@ -33,18 +33,16 @@ contract BasicBank {
         bytes4 insufficientBalanceSelector = InsufficientBalance.selector;
         assembly {
             let m := mload(0x40)
-            mstore(m,amount)
-            mstore(0x00,caller())
+            mstore(m, amount)
+            mstore(0x00, caller())
             mstore(0x20, 0)
-            let kk := keccak256(0x00,0x40)
+            let kk := keccak256(0x00, 0x40)
             let lod := sload(kk)
-                mstore(0x60, insufficientBalanceSelector)
-            if gt(amount,selfbalance()){
-                revert(0x60, 0x04)
-            }
-            let s := call(gas(),caller(),amount, m,0,m,0)
-            sstore(kk, sub(lod,amount))
-            log2(m,0x20, withdrawSelector,caller())
+            mstore(0x60, insufficientBalanceSelector)
+            if gt(amount, selfbalance()) { revert(0x60, 0x04) }
+            let s := call(gas(), caller(), amount, m, 0, m, 0)
+            sstore(kk, sub(lod, amount))
+            log2(m, 0x20, withdrawSelector, caller())
 
             // emit Withdraw(msg.sender, amount)
             // if the balance is less than amount, revert InsufficientBalance()
@@ -52,5 +50,4 @@ contract BasicBank {
             // send the amount to the msg.sender
         }
     }
-
 }

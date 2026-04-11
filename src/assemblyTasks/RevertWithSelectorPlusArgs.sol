@@ -8,7 +8,7 @@ contract RevertWithSelectorPlusArgs {
         assembly {
             mstore(0x00, 0xae41228700000000000000000000000000000000000000000000000000000000)
             mstore(0x04, x)
-            revert(0x00, 0x24) 
+            revert(0x00, 0x24)
             // your code here
             // revert custom error with x parameter
             // Hint: concatenate selector and x by storing them

@@ -4,7 +4,6 @@ pragma solidity ^0.8.13;
 contract RevertWithError {
     function main() external pure {
         assembly {
-            
             mstore(0x00, "RevertRevert")
             revert(0x00, 0xc)
             // revert the function with an error of type `Error(string)`

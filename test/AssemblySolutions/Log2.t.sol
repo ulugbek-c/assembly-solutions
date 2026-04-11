@@ -12,12 +12,10 @@ contract Log2Test is Test {
     }
 
     function test_Log2(uint256 x) public {
-
         if (x == 0) {
             vm.expectRevert();
             c.main(x);
-        }
-        else {
+        } else {
             uint256 ans = c.main(x);
             if (ans <= 254) {
                 assert(2 ** ans <= x);

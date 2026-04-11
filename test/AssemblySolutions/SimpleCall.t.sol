@@ -6,6 +6,7 @@ import {SimpleCall} from "../../src/assemblyTasks/SimpleCall.sol";
 
 contract T {
     bool public x = false;
+
     function foo() external {
         x = true;
     }

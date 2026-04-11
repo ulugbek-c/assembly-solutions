@@ -16,6 +16,5 @@ contract DeployOneByteTest is Test {
         assert(addr != address(0));
         assert(addr.code.length == 1);
         assertEq(addr.code, hex"00");
-        
     }
 }

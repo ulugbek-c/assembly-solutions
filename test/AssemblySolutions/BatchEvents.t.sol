@@ -42,6 +42,5 @@ contract BatchEventsTest is Test {
             assertEq(entries[j].topics[2], i[j], "incorrect identifier");
             assertEq(abi.decode(entries[j].data, (uint256)), n[j], "incorrect logged data");
         }
-            
     }
 }

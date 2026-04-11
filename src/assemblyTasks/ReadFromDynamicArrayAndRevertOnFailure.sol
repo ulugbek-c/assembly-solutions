@@ -11,21 +11,21 @@ contract ReadFromDynamicArrayAndRevertOnFailure {
     function main(int256 index) external view returns (uint256) {
         assembly {
             let size := readMe.slot
-            let len := sub(sload(size),1)
+            let len := sub(sload(size), 1)
             if gt(index, len) {
-            mstore(0x00, 0x4e487b71)
-            mstore(0x20, 0x32)
-            revert(0x1c, 0x24)
+                mstore(0x00, 0x4e487b71)
+                mstore(0x20, 0x32)
+                revert(0x1c, 0x24)
             }
             mstore(0x00, 0)
             let q := keccak256(0x00, 0x20)
-            let g := add(q,index)
+            let g := add(q, index)
             mstore(0x00, g)
             let s := mload(0x00)
             // let k := add(s,i)
             let v := sload(s)
             mstore(0x00, v)
-            return (0x00, 0x20)
+            return(0x00, 0x20)
             // your code here
             // read the value at the `index` in the dynamic array `readMe`
             // and return it

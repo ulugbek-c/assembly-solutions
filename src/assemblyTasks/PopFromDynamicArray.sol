@@ -8,7 +8,7 @@ contract PopFromDynamicArray {
         assembly {
             let bt := 0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e568
             let sw := popFromMe.slot
-            let sb := sub(sw,1)
+            let sb := sub(sw, 1)
             mstore(0x00, sb)
             let h := sload(sw)
             let w := keccak256(0x00, 0x20)

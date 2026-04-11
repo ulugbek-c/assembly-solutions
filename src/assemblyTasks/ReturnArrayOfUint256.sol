@@ -9,7 +9,7 @@ contract ReturnArrayOfUint256 {
             mstore(0x40, a)
             mstore(0x60, b)
             mstore(0x80, c)
-            mstore(0xa0,a)
+            mstore(0xa0, a)
             return(0x00, 0xa0)
             // your code here
             // return an array of [a,b,c]

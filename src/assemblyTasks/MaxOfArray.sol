@@ -4,10 +4,7 @@ pragma solidity ^0.8.13; // CHATGPT was here
 contract MaxOfArray {
     function main(uint256[] memory arr) external pure returns (uint256) {
         assembly {
-            
-            if lt(arr,0){
-                revert(0x00,0x00)
-            }
+            if lt(arr, 0) { revert(0x00, 0x00) }
             // Load the first element as initial max (stack)
             let max := mload(add(arr, 32)) // Skip array length
 
@@ -17,18 +14,15 @@ contract MaxOfArray {
 
             for { let i := arrPtr } lt(i, endPtr) { i := add(i, 32) } {
                 let current := mload(i)
-                if gt(current, max) {
-                    max := current
-                }
+                if gt(current, max) { max := current }
             }
 
             // Return max (stack)
             mstore(0, max)
             return(0, 32)
         }
-            // your code here
-            // return the maximum value in the array
-            // revert if array is empty
-        
+        // your code here
+        // return the maximum value in the array
+        // revert if array is empty
     }
 }

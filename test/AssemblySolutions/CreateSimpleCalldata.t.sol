@@ -18,7 +18,7 @@ contract CreateSimpleCalldataTest is Test {
 
     function test_createSimpleCalldata() public {
         bytes memory deploymentBytecode = type(Simple).creationCode;
-    
+
         address addr = createSimpleCalldata.main(deploymentBytecode);
         assert(addr != address(0));
         assert(addr.code.length > 0);

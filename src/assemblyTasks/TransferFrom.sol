@@ -15,11 +15,11 @@ contract TransferFrom {
             let m := mload(0x40)
             let s := sload(owner.slot)
             let s1 := sload(token.slot)
-            mstore(m,shl(224,0x23b872dd))
-            mstore(0x84,s)
-            mstore(0xa4,address())
-            mstore(0xc4,amount)
-            let c := call(gas(),s1,0, m, 0x64,m,0x20)
+            mstore(m, shl(224, 0x23b872dd))
+            mstore(0x84, s)
+            mstore(0xa4, address())
+            mstore(0xc4, amount)
+            let c := call(gas(), s1, 0, m, 0x64, m, 0x20)
             // your code here
             // transferFrom "token" to msg.sender "amount"
             // assume that you are already approved to spend "amount"

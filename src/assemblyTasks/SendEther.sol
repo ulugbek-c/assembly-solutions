@@ -2,11 +2,10 @@
 pragma solidity ^0.8.13;
 
 contract SendEther {
-
     function main(address payable to, uint256 amount) external payable {
         assembly {
             let m := mload(0x40)
-            let f := call(gas(),to,amount,m,0,m,0)
+            let f := call(gas(), to, amount, m, 0, m, 0)
             // if iszero(f){
             //     revert(0,0)
             // }

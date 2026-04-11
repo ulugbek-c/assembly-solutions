@@ -2,19 +2,16 @@
 pragma solidity ^0.8.13;
 
 contract Division {
-
     function main(int256 x, int256 y) external pure returns (int256) {
         assembly {
-            if eq(y,0){
-                revert(0,0)
-            }
-            let result := sdiv(x,y)
-            mstore(0x00,result)
-            return(0x00,0x20)
+            if eq(y, 0) { revert(0, 0) }
+            let result := sdiv(x, y)
+            mstore(0x00, result)
+            return(0x00, 0x20)
             // your code here
             // x and y can be negative or positive
             // return x / y
             // if y == 0 revert
-       }
+        }
     }
 }

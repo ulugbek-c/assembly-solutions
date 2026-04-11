@@ -9,7 +9,7 @@ contract MaxOfTwoValues {
                 return(0x0, 0x20)
             }
 
-            if lt(y, x){
+            if lt(y, x) {
                 mstore(0x0, x)
                 return(0x0, 0x20)
             }

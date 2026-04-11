@@ -12,7 +12,7 @@ contract EventWithMultipleData {
             mstore(0x80, emitter)
             mstore(0xa0, num)
             mstore(0xc0, isActive)
-            let k := keccak256(0x00,29)
+            let k := keccak256(0x00, 29)
             log1(0x80, 0x60, k)
             // your code here
             // emit the `MyEvent(address,uint256,bool)` event

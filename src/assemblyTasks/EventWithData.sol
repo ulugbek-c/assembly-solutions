@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-pragma solidity ^0.8.13; 
+pragma solidity ^0.8.13;
 
 contract EventWithData {
     // EMIT ME!!!
@@ -8,9 +8,7 @@ contract EventWithData {
     function main(uint256 _number) external {
         assembly {
             mstore(0x80, _number)
-            log1(0x80, 
-            0x20, 
-            0x6c2b4666ba8da5a95717621d879a77de725f3d816709b9cbe9f059b8f875e284)
+            log1(0x80, 0x20, 0x6c2b4666ba8da5a95717621d879a77de725f3d816709b9cbe9f059b8f875e284)
             // your code here
             // emit the `MyEvent(uint256)` event
             // the event has one topic and one non-indexed field:

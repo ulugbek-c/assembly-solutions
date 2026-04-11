@@ -10,9 +10,9 @@ contract ReturnSimpleStruct {
 
     function main(uint256 x, uint256 y) external pure returns (Point memory) {
         assembly {
-            mstore(0x00,x)
-            mstore(0x20,y)
-            return(0x00,0x40)
+            mstore(0x00, x)
+            mstore(0x20, y)
+            return(0x00, 0x40)
             // your code here
             // return the struct: `Point{x,y}`
         }

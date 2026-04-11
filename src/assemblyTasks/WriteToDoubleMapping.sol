@@ -9,10 +9,10 @@ contract WriteToDoubleMapping {
             let t := balances.slot
             mstore(0x00, user)
             mstore(0x20, t)
-            let k := keccak256(0x00,0x40)
+            let k := keccak256(0x00, 0x40)
             mstore(0x00, token)
             mstore(0x20, k)
-            let k2 := keccak256(0x00,0x40)
+            let k2 := keccak256(0x00, 0x40)
             sstore(k2, value)
             // your code here
             // set the `value` for a `user` and a `token`

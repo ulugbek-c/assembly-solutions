@@ -13,13 +13,13 @@ contract ReadFromDoubleMapping {
             let t := balances.slot
             mstore(0x00, user)
             mstore(0x20, t)
-            let k := keccak256(0x00,0x40)
+            let k := keccak256(0x00, 0x40)
             mstore(0x00, token)
             mstore(0x20, k)
-            let k2 := keccak256(0x00,0x40)
+            let k2 := keccak256(0x00, 0x40)
             let result := sload(k2)
             mstore(0x00, result)
-            return(0x00,0x20)
+            return(0x00, 0x20)
             // your code here
             // read and return the `token` balance of `user` in the double mapping `balances`
             // Hint: https://www.rareskills.io/post/solidity-dynamic

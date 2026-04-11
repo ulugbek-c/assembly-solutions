@@ -29,7 +29,7 @@ contract ReadFromMappingInStruct {
             let k := keccak256(0x00, 0x40)
             let s := sload(k)
             mstore(0x00, s)
-            return (0x00, 0x20)
+            return(0x00, 0x20)
             // your code here
             // within the struct `RandomValues`, read from the mapping `readMe` at `index`
             // and return it

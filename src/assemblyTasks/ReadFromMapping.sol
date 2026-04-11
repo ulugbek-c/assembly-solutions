@@ -12,14 +12,14 @@ contract ReadFromMapping {
         assembly {
             let num := readMe.slot
             // let a := add(num, index)
-            mstore(0x00,index)
+            mstore(0x00, index)
             mstore(0x20, num)
-            let k := keccak256(0x00,0x40)
+            let k := keccak256(0x00, 0x40)
             // let v := sload(k)
             mstore(0x00, k)
             let b := mload(0x00)
             let c := sload(b)
-            mstore(0x00,c)
+            mstore(0x00, c)
             return(0x00, 0x20)
             // your code here
             // read the value at the `index` in the mapping `readMe`

@@ -7,8 +7,8 @@ contract ReturnTupleOfStringUnit256 {
             mstore(0x00, 0x40)
             mstore(0x20, 420)
             mstore(0x40, 0xa)
-            mstore(0x60,"RareSkills")
-            return (0x00, 0x80)
+            mstore(0x60, "RareSkills")
+            return(0x00, 0x80)
             // your code here
             // return the tuple of (string and uint256): ("RareSkills", 420)
         }

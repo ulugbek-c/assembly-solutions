@@ -8,7 +8,7 @@ contract ReturnBytes {
             mstore(0x20, 0x40)
             mstore(0x40, a)
             mstore(0x60, b)
-            return (0x00, 0x80)
+            return(0x00, 0x80)
             // your code here
             // encode a and b `abi.encode(a,b)` and return it.
         }

@@ -6,16 +6,16 @@ contract CreateSimpleCalldata {
         assembly {
             // let p := mload(0x40)
             // let g := calldataload(deploymentBytecode.offset)
-            calldatacopy(0,0x44,deploymentBytecode.length)
+            calldatacopy(0, 0x44, deploymentBytecode.length)
             // mstore(0x00, g)
-            let c :=  create(0,0x00,deploymentBytecode.length)
-            mstore(0,c)
-            return (0, 0x20)
+            let c := create(0, 0x00, deploymentBytecode.length)
+            mstore(0, c)
+            return(0, 0x20)
             // your code here
             // create a contract using the deploymentBytecode
             // return the address of the contract
             // hint: use the `create` opcode
             // hint: use calldatacopy to copy the deploymentBytecode to memory
-       }
+        }
     }
 }

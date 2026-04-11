@@ -4,9 +4,9 @@ pragma solidity ^0.8.13;
 contract DeployNBytes {
     function main(uint256 size) external returns (address) {
         assembly {
-            let ptr := mload(0x40)              // free memory pointer
+            let ptr := mload(0x40) // free memory pointer
 
-            // Initcode (13 bytes): 
+            // Initcode (13 bytes):
             // 60 01    PUSH1 0x01
             // 60 00    PUSH1 0x00
             // 60 0c    PUSH1 0x0c   <- source offset of runtime byte
@@ -25,9 +25,9 @@ contract DeployNBytes {
             mstore8(add(ptr, 7), 0x60)
             mstore8(add(ptr, 8), size)
             mstore8(add(ptr, 9), 0x60)
-            mstore8(add(ptr,10), 0x00)
-            mstore8(add(ptr,11), 0xf3)
-            mstore8(add(ptr,12), 0x00) // runtime byte
+            mstore8(add(ptr, 10), 0x00)
+            mstore8(add(ptr, 11), 0xf3)
+            mstore8(add(ptr, 12), 0x00) // runtime byte
 
             // advance free memory pointer (keep 32-byte aligned)
             mstore(0x40, add(ptr, 0x20))
@@ -40,6 +40,6 @@ contract DeployNBytes {
             // hint: use mstore8 to target a single byte
             // hint: because we only care about the size, you can simply return that region
             //       of memory and not care about what is inside it
-       }
+        }
     }
 }

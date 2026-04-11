@@ -11,7 +11,6 @@ contract CreateSimple {
             // return the address of the contract
             // hint: use the `create` opcode
             // hint: the bytecode is already in memory
-
         }
     }
 }

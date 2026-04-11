@@ -7,11 +7,11 @@ contract WriteToFixedArray {
     function main(uint256[5] memory x) external {
         assembly {
             let s := calldataload(4)
-            let s1 := calldataload(add(4,32))
-            let s2 := calldataload(add(4,64))
-            let s3 := calldataload(add(4,96))
-            let s4 := calldataload(add(4,128))
-            
+            let s1 := calldataload(add(4, 32))
+            let s2 := calldataload(add(4, 64))
+            let s3 := calldataload(add(4, 96))
+            let s4 := calldataload(add(4, 128))
+
             sstore(0, s)
             sstore(1, s1)
             sstore(2, s2)

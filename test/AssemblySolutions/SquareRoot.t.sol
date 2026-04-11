@@ -12,7 +12,7 @@ contract SquareRootTest is Test {
     }
 
     function test_squareRoot(uint256 n) public {
-        uint256 x = bound(n, 0, 2**255); // avoid challenging cases when x is close to 2**256
+        uint256 x = bound(n, 0, 2 ** 255); // avoid challenging cases when x is close to 2**256
         uint256 result = c.main(x);
         console.log("x", x, result);
         assert(result * result <= x);

@@ -9,7 +9,7 @@ contract AnonymonusEventWithIndexedData {
         assembly {
             mstore(0x80, num)
             log3(0x80, 0x60, 0x00, emitter, id)
-            
+
             // your code here
             // emit the `MyEvent(address,bytes32,uint256)` event.
             // Hint: Use `log3` to emit the event with three parameters, without including the event signature (topic0).

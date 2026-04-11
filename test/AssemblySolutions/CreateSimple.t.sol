@@ -18,7 +18,7 @@ contract CreateSimpleTest is Test {
 
     function test_createSimple() public {
         bytes memory deploymentBytecode = type(Simple).creationCode;
-    
+
         address addr = createSimple.main(deploymentBytecode);
         assert(addr != address(0));
         assert(addr.code.length > 0);

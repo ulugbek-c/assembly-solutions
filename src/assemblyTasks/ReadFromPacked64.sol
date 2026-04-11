@@ -18,8 +18,8 @@ contract ReadFromPacked64 {
         assembly {
             let exm := sload(0)
             let mask_b := not(shr(128, sub(shr(64, 1), 1)))
-            exm := shl(64,and(exm, mask_b))
-            exm := shr(192,exm)
+            exm := shl(64, and(exm, mask_b))
+            exm := shr(192, exm)
             mstore(0x00, exm)
             return(0x00, 0x20)
             // your code here

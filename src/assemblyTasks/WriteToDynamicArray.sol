@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-pragma solidity ^0.8.13; 
+pragma solidity ^0.8.13;
 
 contract WriteToDynamicArray {
     uint256[] writeHere;
 
     function main(uint256[] memory x) external {
         assembly {
-            let len := mload(x)                     // x.length
-            sstore(writeHere.slot, len)              // store length
+            let len := mload(x) // x.length
+            sstore(writeHere.slot, len) // store length
 
             // --------------------------------------------------------
             // 2. Compute storage start = keccak256(myArray.slot)
@@ -29,7 +29,7 @@ contract WriteToDynamicArray {
             // 4. Loop and write each element to storage
             // --------------------------------------------------------
             for { let i := 0 } lt(i, len) { i := add(i, 1) } {
-                let value := mload(add(dataPtr, mul(i, 0x20)))  // 2 * 32 
+                let value := mload(add(dataPtr, mul(i, 0x20))) // 2 * 32
                 sstore(add(start, i), value)
             }
             // your code here

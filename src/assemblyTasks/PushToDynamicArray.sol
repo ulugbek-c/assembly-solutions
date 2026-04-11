@@ -10,7 +10,7 @@ contract PushToDynamicArray {
             mstore(0x00, sw)
             let h := sload(sw)
             let w := keccak256(0x00, 0x20)
-            let jw := add(w,h)
+            let jw := add(w, h)
             sstore(jw, newValue)
             sstore(sw, add(h, 1))
             // your code here

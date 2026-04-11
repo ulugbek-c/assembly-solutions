@@ -20,7 +20,7 @@ contract CreateSimplePayableTest is Test {
         vm.deal(address(this), value);
 
         bytes memory deploymentBytecode = type(Simple).creationCode;
-    
+
         address addr = c.main{value: value}(100, deploymentBytecode);
         assert(addr != address(0));
         assert(addr.code.length > 0);

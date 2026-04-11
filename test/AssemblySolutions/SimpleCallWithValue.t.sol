@@ -6,6 +6,7 @@ import {SimpleCallWithValue} from "../../src/assemblyTasks/SimpleCallWithValue.s
 
 contract T {
     bool public x = false;
+
     function foo() external payable {
         x = true;
     }

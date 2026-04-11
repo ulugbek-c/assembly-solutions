@@ -5,9 +5,9 @@ contract KeccakX {
     function main(uint256 x) external pure returns (bytes32) {
         assembly {
             mstore(0x00, x)
-        let k := keccak256(0x00, 0x20)
-        mstore(0x00, k)
-        return(0x00, 0x20)
+            let k := keccak256(0x00, 0x20)
+            mstore(0x00, k)
+            return(0x00, 0x20)
             // your code here
             // return the keccak hash of x
             // Hint: use keccak256(offset, size)
