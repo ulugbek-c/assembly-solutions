@@ -4,11 +4,11 @@ pragma solidity ^0.8.13;
 contract SendEther {
     function main(address payable to, uint256 amount) external payable {
         assembly {
-            let m := mload(0x40)
-            let f := call(gas(), to, amount, m, 0, m, 0)
-            // if iszero(f){
-            //     revert(0,0)
-            // }
+            // let m := mload(0x40)
+            let f := call(gas(), to, amount, 0, 0, 0, 0)
+            if iszero(f) {
+                revert(0, 0)
+            }
             // your code here
             // send `amount` of ether to `to`
             // assume `amount` is less than or equal to the contract balance
