@@ -2,8 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {ReadFromDynamicArrayAndRevertOnFailure} from
-    "../../src/assemblyTasks/ReadFromDynamicArrayAndRevertOnFailure.sol";
+import "../../src/assemblyTasks/ReadFromDynamicArrayAndRevertOnFailure.sol";
 
 contract ReadFromDynamicArrayAndRevertOnFailureTest is Test {
     ReadFromDynamicArrayAndRevertOnFailure public c;
